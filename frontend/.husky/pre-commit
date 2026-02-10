@@ -1,2 +1,3 @@
 cd frontend
+echo "Running format..."
 npm run format
