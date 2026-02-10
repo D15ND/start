@@ -1,4 +1,4 @@
 # start
 ### React settup
-### Pretier Eslint TSconfig
+### Pretier Eslint TSconfig Husky
 ### React data-routing
