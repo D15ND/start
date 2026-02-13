@@ -1,13 +1,10 @@
 import js from '@eslint/js';
-import globals from 'globals';
+import prettier from 'eslint-config-prettier/flat';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
-import prettier from 'eslint-config-prettier/flat';
-import unusedImports from 'eslint-plugin-unused-imports';
-import perfectionist from 'eslint-plugin-perfectionist';
-import importPlugin from 'eslint-plugin-import';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -20,14 +17,24 @@ export default defineConfig([
       reactRefresh.configs.vite,
       prettier,
     ],
-    plugins: {
-      'unused-imports': unusedImports,
-      perfectionist: perfectionist,
-      import: importPlugin,
-    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    rules: {
+      'no-console': 'warn',
+      'prefer-const': 'error',
+      'no-var': 'error',
+      'prefer-template': 'error',
+      'no-duplicate-imports': 'error',
+      eqeqeq: ['error', 'always'],
+      'no-warning-comments': [
+        'warn',
+        {
+          terms: ['todo', 'fix'],
+          location: 'anywhere',
+        },
+      ],
     },
   },
 ]);
