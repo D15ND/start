@@ -1,11 +1,11 @@
-.container {
-  max-width: 1440px;
-  padding: 0 20px;
+.header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: green;
 }
 
-.title {
+.title,
+.desc {
   font-size: 20px;
 }
